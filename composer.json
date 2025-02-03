@@ -1,0 +1,19 @@
+{
+    "name": "vitor/base-project",
+    "description": "Framework para conexão com banco de dados",
+    "type": "library",
+    "require": {
+        "vlucas/phpdotenv": "5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "BaseProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vitor Louzada",
+            "email": "vlassessoria@gmail.com"
+        }
+    ]
+}
