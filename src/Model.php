@@ -11,7 +11,11 @@ abstract class Model {
     public static function all(): array {
         $db = Database::connect();
         $stmt = $db->query("SELECT * FROM " . static::$table);
-        return $stmt->fetchAll();
+        $result = $stmt->fetchAll();
+
+        Logger::log(static::$table, "SELECT", ["query" => "ALL"]);
+
+        return $result;
     }
 
     public static function find(int $id): ?array {
@@ -19,7 +23,11 @@ abstract class Model {
         $stmt = $db->prepare("SELECT * FROM " . static::$table . " WHERE id = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch() ?: null;
+        $result = $stmt->fetch();
+
+        Logger::log(static::$table, "SELECT", ["id" => $id]);
+
+        return $result ?: null;
     }
 
     public static function create(array $data): bool {
@@ -35,7 +43,13 @@ abstract class Model {
             $stmt->bindValue(":$key", $value);
         }
 
-        return $stmt->execute();
+        $executed = $stmt->execute();
+        
+        if ($executed) {
+            Logger::log(static::$table, "INSERT", $data);
+        }
+
+        return $executed;
     }
 
     public static function update(int $id, array $data): bool {
@@ -50,13 +64,26 @@ abstract class Model {
         }
 
         $stmt->bindValue(":id", $id, PDO::PARAM_INT);
-        return $stmt->execute();
+        $executed = $stmt->execute();
+
+        if ($executed) {
+            Logger::log(static::$table, "UPDATE", array_merge(["id" => $id], $data));
+        }
+
+        return $executed;
+
     }
 
     public static function delete(int $id): bool {
         $db = Database::connect();
         $stmt = $db->prepare("DELETE FROM " . static::$table . " WHERE id = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        return $stmt->execute();
+        $executed = $stmt->execute();
+        
+        if ($executed) {
+            Logger::log(static::$table, "DELETE", ["id" => $id]);
+        }
+
+        return $executed;
     }
 }
