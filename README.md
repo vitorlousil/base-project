@@ -63,6 +63,11 @@ Para executar os testes dos métodos do CRUD, acesse o arquivo `index.php` no se
 php index.php
 ```
 
+Para executar os testes dos métodos do Email, acesse o arquivo `test-mail.php` no seu navegador ou via linha de comando:
+```sh
+php test-mail.php
+```
+
 ## Contribuição
 
 Sinta-se à vontade para contribuir com este projeto. Faça um fork do repositório, crie uma branch para suas alterações e envie um pull request.
