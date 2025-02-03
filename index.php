@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 
 use BaseProject\Database;
 use BaseProject\Model;
+use BaseProject\Logger;
 
 // Modelo de arquivo para execução de testes dos métodos do Model
 
@@ -38,7 +39,7 @@ try {
 
 // Buscar um usuário específico
 try {
-    $user = User::find(4);
+    $user = User::find(1);
     print_r($user);
     echo "Usuário encontrado com sucesso!";
 } catch (Exception $e) {
@@ -47,7 +48,7 @@ try {
 
 // Atualizar um usuário
 try {
-    User::update(2, ["name" => "João Atualizado"]);
+    User::update(1, ["name" => "João Atualizado"]);
     echo "Usuário atualizado com sucesso!";
 } catch (Exception $e) {
     echo "Erro ao atualizar usuário: " . $e->getMessage();
@@ -63,3 +64,6 @@ try {
 
 // Fechar a conexão
 Database::disconnect();
+
+// Mostrar os logs gravados no arquivo
+echo nl2br(file_get_contents(__DIR__ . "/logs/db.log"));
