@@ -1,0 +1,4 @@
+
+[2025-02-03 21:36:53] [email_queue] [INSERT] {"destinatario":"desenvolvimento3@arcoinformatica.com.br","assunto":"Confirmação de Cadastro"}
+[2025-02-03 21:39:42] [email_queue] [EMAIL SENT] {"destinatario":"desenvolvimento3@arcoinformatica.com.br","assunto":"Confirmação de Cadastro"}
+[2025-02-03 21:42:43] [email_queue] [EMAIL SENT] {"destinatario":"desenvolvimento3@arcoinformatica.com.br","assunto":"Confirmação de Cadastro"}

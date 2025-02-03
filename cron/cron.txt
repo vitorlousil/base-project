@@ -1,0 +1,5 @@
+Adicionar no servidor a seguinte crontab:
+
+* * * * * php /caminho/do/seu/projeto/processa_emails.php >> /caminho/do/seu/projeto/logs/email_queue.log 2>&1
+
+isso executará processa_emails.php a cada minuto.
