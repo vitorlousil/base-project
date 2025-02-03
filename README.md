@@ -2,8 +2,13 @@
 
 Este é um framework básico para desenvolvimento de aplicações web. A estrutura do projeto é organizada da seguinte forma:
 
-##
-Versão com Logger automático em banco de dados e arquivo.
+## Versão com logger
+
+**Melhorias Implementadas:**
+- Sistema de Logs: Cada ação (Create, Read, Update, Delete) gera um log automático.
+- Tabela logs: Armazena as interações no banco de dados.
+- Classe Logger.php: Registra logs automaticamente sempre que operações no banco são feitas.
+- Adição de Data e Hora: Os logs possuem timestamp.
 
 ## Estrutura de Diretórios
 
